@@ -192,10 +192,10 @@ func setTiFlashProxyConfigDefault(config *v1alpha1.ProxyConfig, clusterName, ns 
 		config.Server.EngineAddr = pointer.StringPtr(fmt.Sprintf("%s-POD_NUM.%s.%s.svc:3930", controller.TiFlashMemberName(clusterName), controller.TiFlashPeerMemberName(clusterName), ns))
 	}
 	if config.Server.StatusAddr == nil {
-		config.Server.StatusAddr = pointer.StringPtr("0.0.0.0:20292")
+		config.Server.StatusAddr = pointer.StringPtr("0.0.0.0:20180")
 	}
 	if config.Server.AdvertiseStatusAddr == nil {
-		config.Server.AdvertiseStatusAddr = pointer.StringPtr(fmt.Sprintf("%s-POD_NUM.%s.%s.svc:20292", controller.TiFlashMemberName(clusterName), controller.TiFlashPeerMemberName(clusterName), ns))
+		config.Server.AdvertiseStatusAddr = pointer.StringPtr(fmt.Sprintf("%s-POD_NUM.%s.%s.svc:20180", controller.TiFlashMemberName(clusterName), controller.TiFlashPeerMemberName(clusterName), ns))
 	}
 }
 
