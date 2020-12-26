@@ -28,9 +28,10 @@ import (
 var (
 	allFeatures     = sets.NewString(StableScheduling)
 	defaultFeatures = map[string]bool{
-		StableScheduling:    true,
-		AdvancedStatefulSet: false,
-		AutoScaling:         false,
+		StableScheduling:      true,
+		AdvancedStatefulSet:   false,
+		AutoScaling:           false,
+		PeriodicityController: false,
 	}
 	// DefaultFeatureGate is a shared global FeatureGate.
 	DefaultFeatureGate FeatureGate = NewDefaultFeatureGate()
@@ -45,6 +46,9 @@ const (
 
 	// AutoScaling controls whether to use TidbClusterAutoScaler to auto scale-in/out pods
 	AutoScaling string = "AutoScaling"
+
+	// PeriodicityController controls whether to enalbe periodicity controller
+	PeriodicityController string = "PeriodicityController"
 )
 
 type FeatureGate interface {

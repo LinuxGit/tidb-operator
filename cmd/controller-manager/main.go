@@ -145,7 +145,7 @@ func main() {
 			tidbinitializer.NewController(deps),
 			tidbmonitor.NewController(deps),
 		}
-		if cliCfg.PodWebhookEnabled {
+		if cliCfg.PodWebhookEnabled || features.DefaultFeatureGate.Enabled(features.PeriodicityController) {
 			controllers = append(controllers, periodicity.NewController(deps))
 		}
 		if features.DefaultFeatureGate.Enabled(features.AutoScaling) {
